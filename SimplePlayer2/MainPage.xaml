@@ -8,6 +8,23 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30" />
+            </Grid.RowDefinitions>
+            <MediaElement x:Name="mediaplayer" Grid.Row="0" AutoPlay="True" 
+                          AreTransportControlsEnabled="True">
+            </MediaElement>
+            <RelativePanel Grid.Row="1"  Height="50">
+                <Button Content="本地文件" x:Name="ButtonOpenFile" Click="openFile_click" />
+                <TextBox x:Name="txtFilePath" Width="400"   KeyUp="TxtFilePath_KeyUp"
+                         PlaceholderText="输入Uri"
+                         RelativePanel.RightOf="ButtonOpenFile" Margin="100,0"
+                         />
+                <Button Content="播放" x:Name="ButtonOpenUri" Click="ButtonOpenUri_Click" RelativePanel.RightOf="txtFilePath"/>
+                <Button Content="播放并下载" x:Name="ButtonOpenDownloadUri" Click="ButtonOpenDownloadUri_Click" RelativePanel.RightOf="ButtonOpenUri"/>
+            </RelativePanel>
+        </Grid>
     </Grid>
 </Page>
